@@ -2,6 +2,9 @@
 
 include('../componentes/header.php');
 
+require("../login/processa_login.php");
+verificarLogin();
+
 ?>
 
 

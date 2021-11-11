@@ -16,7 +16,7 @@ function realizarLogin($usuario, $senha, $conexao){
         && $usuario == $dadosUsuario["usuario"] && $senha == $dadosUsuario["senha"]
     ) {
 
-        $_SESSION["id"] = $dadosUsuario["id"];
+        $_SESSION["id"] = session_id();
         $_SESSION["nome"] = $dadosUsuario["usuario"];
 
         header("location: ../cadastro/index.php");
@@ -34,11 +34,9 @@ realizarLogin($usuario, $senha, $conexao);
 
 function verificarLogin(){
 
-    if (isset($_SESSION["id"])) {
-        # code...
-    } else {
+    if(($_SESSION["id"] != session_id()) || (empty($_SESSION["id"]))){
         session_destroy();
-        header("location: index.php");
+        header("location: ../login/index.php");
     }
 
 }

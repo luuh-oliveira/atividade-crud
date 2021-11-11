@@ -1,5 +1,9 @@
 <?php
+
 include('../componentes/header.php');
+
+require("../login/processa_login.php");
+verificarLogin();
 
 require("../database/conexao.php");
 

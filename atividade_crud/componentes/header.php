@@ -27,7 +27,7 @@ session_start();
         Cadastro
     </a>
 
-    <ul class="navbar-nav mr-auto">
+    <!-- <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link" href="../cadastro">Cadastrar</a>
         </li>
@@ -46,7 +46,7 @@ session_start();
             <a class="nav-link" href="../login/">Sair</a>
         </li>
         
-    </ul>
+    </ul> -->
     
 
 </nav>
