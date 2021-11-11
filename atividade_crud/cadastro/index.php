@@ -1,5 +1,7 @@
 <?php
+
 include('../componentes/header.php');
+
 ?>
 
 
