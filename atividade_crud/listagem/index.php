@@ -5,7 +5,6 @@ include('../componentes/header.php');
 require("../login/processa_login.php");
 verificarLogin();
 
-require("../database/conexao.php");
 
 $sql = "SELECT * FROM tbl_pessoa";
 $resultado = mysqli_query($conexao, $sql);

@@ -5,8 +5,6 @@ include('../componentes/header.php');
 require("../login/processa_login.php");
 verificarLogin();
 
-require("../database/conexao.php");
-
 $pessoaId = $_GET["pessoaId"];
 
 $sql = "SELECT * FROM tbl_pessoa WHERE cod_pessoa = $pessoaId";

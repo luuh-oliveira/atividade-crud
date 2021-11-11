@@ -16,8 +16,9 @@ function realizarLogin($usuario, $senha, $conexao){
         && $usuario == $dadosUsuario["usuario"] && $senha == $dadosUsuario["senha"]
     ) {
 
-        $_SESSION["id"] = session_id();
+        $_SESSION["id"] = $dadosUsuario["id"];
         $_SESSION["nome"] = $dadosUsuario["usuario"];
+
 
         header("location: ../cadastro/index.php");
     } else {
@@ -26,17 +27,21 @@ function realizarLogin($usuario, $senha, $conexao){
     }
 }
 
-$usuario = $_POST["txt_usuario"];
-$senha = $_POST["txt_senha"];
-
-realizarLogin($usuario, $senha, $conexao);
-
-
 function verificarLogin(){
 
-    if(($_SESSION["id"] != session_id()) || (empty($_SESSION["id"]))){
+    if(empty($_SESSION["id"])){
         session_destroy();
         header("location: ../login/index.php");
     }
 
 }
+
+if (isset($_POST["txt_usuario"]) && isset($_POST["txt_senha"])){
+
+    $usuario = $_POST["txt_usuario"];
+    $senha = $_POST["txt_senha"];
+
+    realizarLogin($usuario, $senha, $conexao);
+
+}
+
