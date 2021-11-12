@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require("../database/conexao.php");
 
 function realizarLogin($usuario, $senha, $conexao)
@@ -36,4 +34,5 @@ function verificarLogin()
         header("location: ../login/index.php");
     }
 }
+
 
