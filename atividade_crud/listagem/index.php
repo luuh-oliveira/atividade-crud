@@ -42,22 +42,31 @@ $resultado = mysqli_query($conexao, $sql);
                     <th><?= $pessoa["celular"] ?></th>
                     <th>
                         <button class="btn btn-warning" onclick="javascript:window.location.href = '../cadastro/editar.php?pessoaId=<?= $pessoa['cod_pessoa'] ?>'">Editar</button>
-
-                        <form id="form-deletar" action="../cadastro/acoes.php" method="post" style="display: inline;">
-                            <input type="hidden" name="cod_pessoa" value="<?= $pessoa["cod_pessoa"] ?>">
-                            <input type="hidden" name="acao" value="deletar" />
-                            <button class="btn btn-danger">Excluir</button>
-                        </form>
-
+                        <button class="btn btn-danger" onclick="deletar(<?= $pessoa['cod_pessoa'] ?>)" >Excluir</button>
+                        
+                        
                     </th>
                 </tr>
-
-            <?php
+                
+                <?php
             }
             ?>
+            <form id="form-deletar" action="../cadastro/acoes.php" method="post" style="display: inline;">
+                <input type="hidden" name="cod_pessoa" id="cod_pessoa">
+                <input type="hidden" name="acao" value="deletar" />
+            </form>
         </tbody>
 
     </table>
+
+    <script lang="javascript">
+        function deletar(pessoaId) {
+            if (confirm("Tem certeza que deseja excluir esse cadastro?")) {
+                document.querySelector("#cod_pessoa").value = pessoaId;
+                document.querySelector("#form-deletar").submit();
+            }
+        }
+    </script>
 
 </div>
 

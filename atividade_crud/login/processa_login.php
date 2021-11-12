@@ -4,7 +4,8 @@ session_start();
 
 require("../database/conexao.php");
 
-function realizarLogin($usuario, $senha, $conexao){
+function realizarLogin($usuario, $senha, $conexao)
+{
 
     $sql = "SELECT * FROM tbl_usuario WHERE usuario = '$usuario'";
     $resultado = mysqli_query($conexao, $sql);
@@ -27,21 +28,12 @@ function realizarLogin($usuario, $senha, $conexao){
     }
 }
 
-function verificarLogin(){
+function verificarLogin()
+{
 
-    if(empty($_SESSION["id"])){
+    if (empty($_SESSION["id"])) {
         session_destroy();
         header("location: ../login/index.php");
     }
-
-}
-
-if (isset($_POST["txt_usuario"]) && isset($_POST["txt_senha"])){
-
-    $usuario = $_POST["txt_usuario"];
-    $senha = $_POST["txt_senha"];
-
-    realizarLogin($usuario, $senha, $conexao);
-
 }
 

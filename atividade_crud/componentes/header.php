@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,27 +25,45 @@
             Cadastro
         </a>
 
+        <?php
+        if (isset($_SESSION["id"])) {
+        ?>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../cadastro">Cadastrar</a>
-            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro">Cadastrar</a>
+                </li>
 
-        </ul>
+            </ul>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../listagem">Listar</a>
-            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../listagem">Listar</a>
+                </li>
 
-        </ul>
+            </ul>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../login/">Sair</a>
-            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="logout()">Sair</a>
+                </li>
 
-        </ul>
+            </ul>
+
+        <?php
+        }
+        ?>
+
+        <form id="form-logout" style="display:none" method="POST" action="../login/acoesLogin.php">
+            <input type="hidden" name="acao" value="logout" />
+        </form>
+
+        <script lang="javascript">
+            function logout() {
+                document.querySelector("#form-logout").submit();
+            }
+        </script>
+
 
 
     </nav>

@@ -6,7 +6,7 @@
     
         <div class="container-form">
     
-                <form action="processa_login.php" method="POST">
+                <form action="acoesLogin.php" method="POST">
                     
                     <div class="form-group">
                         <label for="txt_usuario">USUÁRIO</label>
